@@ -1,5 +1,5 @@
 <x-master title="Products">
-    <h2>Products</h2>
-    
+    <p class="text-3xl">Products</p>
+
 
 </x-master>
