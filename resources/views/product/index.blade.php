@@ -1,5 +1,4 @@
-<x-master title="Products">
-    <p class="text-3xl">Products</p>
+<x-master title="Products" header="List of products">
     <table class="w-full">
         <thead class="border-2 border-gray-200 bg-gray-100">
             <tr>
