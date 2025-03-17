@@ -1,13 +1,11 @@
 @props(['header', 'title'])
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$title}} | {{config("app.name")}}</title>
     @vite('resources/css/app.css')
 </head>
-
 <body>
     <div class="w-[60%] mx-auto">
         @if ($errors->any())
@@ -18,7 +16,6 @@
                 @endforeach
             </ul>
         @endif
-        <h2 class="m-4 text-2xl font-semibold">{{$header}}</h2>
         <main>
             {{$slot}}
         </main>

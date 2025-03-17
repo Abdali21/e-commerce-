@@ -1,4 +1,10 @@
-<x-master title="Products" header="List of products">
+<x-master title="Products">
+     <div class="flex justify-between items-center mt-2">
+        <h2>Products list</h2>
+            <a href="{{route("products.create")}}">
+                <button class="bg-blue-500 hover:bg-blue-600 p-2 w-full text-white">Add a new product</button>
+            </a>
+     </div>
     <table class="w-full">
         <thead class="border-2 border-gray-200 bg-gray-100">
             <tr>
@@ -17,9 +23,11 @@
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->id}}</td>     
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->name}}</td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->description}}</td>   
-                    <td class="p-3 text-sm font-semibold text-gray-800">{{$product->image}}</td>   
+                    <td class="p-3 text-sm font-semibold text-gray-800">
+                       <img src="storage/{{$product->image}}" alt="image">    
+                    </td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->quantity}}</td>   
-                    <td class="p-3 text-sm font-semibold text-gray-800">{{$product->price}}</td>   
+                    <td class="p-3 text-sm font-semibold text-gray-800">{{$product->price}} MAD</td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">delete</td>              
                  </tr>
                @empty
@@ -31,4 +39,5 @@
                @endforelse
         </tbody>
     </table>
+        {{$products->links()}}
 </x-master>
