@@ -24,11 +24,25 @@
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->name}}</td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->description}}</td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">
-                       <img src="storage/{{$product->image}}" alt="image">    
+                       <img src="storage/{{$product->image}}" class="w-12 h-12" alt="image">    
                     </td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->quantity}}</td>   
                     <td class="p-3 text-sm font-semibold text-gray-800">{{$product->price}} MAD</td>   
-                    <td class="p-3 text-sm font-semibold text-gray-800">delete</td>              
+                    <td class="p-3 text-sm font-semibold text-gray-800 flex items-center justify-around">
+                        <form method="get" action="{{route("products.edit", $product->id)}}">
+                            @csrf
+                            <button class="bg-yellow-500 hover:bg-yellow-600 p-2 w-full text-white">
+                                Edit
+                            </button>
+                        </form>
+                        <form method="post" action="{{route("products.destroy", $product->id)}}">
+                            @csrf
+                            @method("DELETE")
+                            <button class="bg-red-500 hover:bg-red-600 p-2 w-full text-white">
+                                Delete
+                            </button>
+                        </form>
+                    </td>              
                  </tr>
                @empty
                    <tr class="bg-gray-50">

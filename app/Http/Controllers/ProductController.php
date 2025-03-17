@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::query()->paginate(1);
+        $products = Product::query()->paginate(2);
         return view("product.index", compact("products"));
     }
 
@@ -22,8 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product = new Product();
-        return view("product.create", compact("product"));
+        return view("product.create");
     }
 
     /**
@@ -54,7 +53,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view("product.edit", compact($product));
     }
 
     /**
@@ -70,6 +69,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return to_route("products.index")->with("success", "Product deleted successfuly");
     }
 }
